@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODE CRAFTERS | INVENTO</title>
+    <link rel="stylesheet" href="feedback-responsive.css">
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: google;
+        color: white;
+        transition: all .2s;
+        /* outline: 1px solid white; */
+    }
+
+    @font-face {
+        font-family: google;
+        src: url("./fonts/product-sans/Product\ Sans\ Regular.ttf");
+    }
+
+    body {
+        background: transparent;
+    }
+
+    .main {
+        width: 100%;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        background: transparent;
+        z-index: 999;
+        /* background: rgb(15, 15, 15); */
+        /* backdrop-filter: blur(20px); */
+    }
+
+    .main .feedback-container .feed {
+        font-weight: 300;
+    }
+
+    .main .feedback-container {
+        width: 35%;
+        height: 70dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        /* background: rgb(37, 36, 36); */
+        background: rgba(255, 255, 255, .1);
+        /* backdrop-filter: blur(100px); */
+        border-radius: 0px 40px 0px 40px;
+        /* backdrop-filter: blur(10px); */
+    }
+
+    .main .feedback-container .input {
+        height: 7dvh;
+        width: 25dvw;
+        text-align: center;
+        color: black;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        font-weight: 600;
+    }
+
+    .main .feedback-container .input::placeholder {
+        text-align: center;
+        color: black;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .move-back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        height: 100dvh;
+        width: 100%;
+        background: rgb(15, 15, 15);
+        overflow: hidden;
+    }
+
+    .move-back .circle {
+        position: absolute;
+        border-radius: 50%;
+        height: 80dvh;
+        width: 40dvw;
+        transition: all 1s;
+    }
+
+    .move-back .circle:first-child {
+        background: linear-gradient(to right, blue, aqua);
+        top: -30%;
+        left: -10%;
+        animation: c-1 15s linear infinite;
+    }
+
+    .move-back .circle:last-child {
+        background: linear-gradient(to right, rgb(223, 74, 5), rgb(96, 4, 124));
+        top: 50%;
+        left: 80%;
+        animation: c-2 15s linear infinite;
+    }
+
+    @keyframes c-1 {
+        0% {
+            background: linear-gradient(to right, rgb(10, 146, 146), rgb(170, 6, 219));
+        }
+
+        25% {
+            background: linear-gradient(to right, rgb(5, 74, 223), rgb(216, 10, 89));
+        }
+
+        50% {
+            background: linear-gradient(to right, rgb(5, 219, 87), rgb(7, 102, 226));
+        }
+
+        75% {
+            background: linear-gradient(to right, rgb(69, 19, 248), rgb(124, 4, 50));
+        }
+
+        100% {
+            background: linear-gradient(to right, rgb(223, 190, 5), rgb(235, 4, 42));
+        }
+    }
+
+    @keyframes c-2 {
+        0% {
+            background: linear-gradient(to right, rgb(223, 74, 5), rgb(96, 4, 124));
+        }
+
+        25% {
+            background: linear-gradient(to right, rgb(204, 143, 10), rgb(190, 9, 245));
+        }
+
+        50% {
+            background: linear-gradient(to right, rgb(5, 223, 78), rgb(3, 100, 47));
+        }
+
+        75% {
+            background: linear-gradient(to right, rgb(10, 228, 137), rgb(5, 74, 114));
+        }
+
+        100% {
+            background: linear-gradient(to right, rgb(223, 74, 5), rgb(96, 4, 124));
+        }
+    }
+
+    .main .feedback-container .feed-submit {
+        height: 7dvh;
+        width: 8dvw;
+        border-radius: 8px;
+        font-size: 1rem;
+        border: none;
+        outline: none;
+        color: rgb(253, 253, 253);
+        background: rgb(0, 0, 0);
+    }
+
+    .main .feedback-container .feed-submit:active {
+        scale: .8;
+    }
+
+    .auto {
+        width: 60dvw;
+        height: max-content;
+        text-align: center;
+    }
+
+    .auto-type-text {
+        font-weight: 200;
+        border-bottom: 2px solid white;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="move-back">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <!-- <div class="circle"></div> -->
+    </div>
+    <div class="main">
+        <div class="auto">
+            <h2><span class="auto-type-text"></span></h2>
+        </div>
+        <form action="process_feedback.php" method="post" class="feedback-container">
+            <input type="text" name="name" id="name" class="input" placeholder="Enter your name" required>
+            <input type="text" name="last-name" id="last-name" class="input" placeholder="Enter your last-name"
+                required>
+            <input type="text" name="email" id="email" class="input" placeholder="your-email@gmail.com" required>
+            <textarea name="message" id="message" cols="20" rows="5" class="input"
+                placeholder="Enter your message here..." required></textarea>
+            <button type="submit" class="feed-submit">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+    // Initialize Type.js
+    var options = {
+        strings: [
+            "Feedback is the breakfast of champions.",
+            "Your opinion is the light that guides my revision.",
+            "In the echo of constructive criticism, we find the path to improvement."
+        ],
+        typeSpeed: 40, // Adjust the typing speed as needed
+        backSpeed: 40,
+        showCursor: true,
+        loop: true
+    };
+
+    var typed = new Typed('.auto-type-text', options);
+</script>
+
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const circles = document.querySelectorAll('.circle');
+
+        function moveCircles() {
+            circles.forEach(circle => {
+                const maxX = window.innerWidth - circle.clientWidth;
+                const maxY = window.innerHeight - circle.clientHeight;
+
+                const randomX = Math.random() * maxX;
+                const randomY = Math.random() * maxY;
+
+                circle.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            });
+        }
+
+        // Initial positioning
+        moveCircles();
+
+        // Update position and gradient every 2 seconds (you can adjust this interval)
+        setInterval(() => {
+            moveCircles();
+            changeGradient();
+        }, 4000);
+    });
+
+    function changeGradient() {
+        const circles = document.querySelectorAll('.circle');
+        circles.forEach(circle => {
+            const randomColor1 = getRandomColor();
+            const randomColor2 = getRandomColor();
+            const gradient = `linear-gradient(to right, ${randomColor1}, ${randomColor2})`;
+
+            circle.style.background = gradient;
+            circle.style.transition = "all 3s";
+        });
+    }
+
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+</script> -->
+
+</html>

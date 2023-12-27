@@ -1,0 +1,583 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: 1px solid black; */
+    color: white;
+    font-family: google;
+    transition: all .5s;
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: google;
+    src: url("./fonts/product-sans/Product\ Sans\ Regular.ttf");
+}
+
+@font-face {
+    font-family: horror;
+    src: url("./fonts/horror-comics-font/Horrorcomicsdemo-0WmLR.ttf");
+}
+
+@font-face {
+    font-family: fancy;
+    src: url("./fonts/httpsjoko-studiocombaesthic-classic-font/AesthicClassic-MVMdr.otf");
+}
+
+body {
+    background: transparent;
+    position: relative;
+}
+
+nav {
+    width: 100%;
+    height: 15dvh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+}
+
+nav .game-name {
+    height: max-content;
+    width: max-content;
+    text-align: center;
+    font-family: horror;
+    font-size: 4rem;
+    letter-spacing: 2px;
+    margin-top: .5rem;
+}
+
+nav ul {
+    width: 27%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul li {
+    text-align: center;
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 1.275rem;
+    font-weight: 300;
+    transform-origin: left;
+}
+
+nav ul li a:hover {
+    border-bottom: 2px solid white;
+}
+
+.page-1 {
+    background: url("./images/1.png");
+    background-size: cover;
+    /* width: 100%; */
+    height: 100dvh;
+    /* position: relative; */
+    /* background: lightseagreen; */
+}
+
+.page-1 .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40dvw;
+    height: 100%;
+    margin-left: 5rem;
+    /* margin-top: 10rem; */
+}
+
+.page-1 .main .left {
+    width: 100%;
+    height: 40dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background: rgba(to 45%, rgb(2, 2, 54), rgb(24, 2, 85), rgb(2, 34, 61), 1);
+    backdrop-filter: blur(7px);
+    border-radius: 10px;
+    /* background: lightcoral; */
+    margin-top: 5rem;
+}
+
+.page-1 .main .left .main-heading {
+    font-weight: 300;
+    font-size: 2.5rem;
+}
+
+.page-1 .main .left .main-description {
+    width: 85%;
+    height: max-content;
+    text-align: center;
+    font-weight: 100;
+    font-size: 1.1rem;
+}
+
+.page-1 .main .left .membership-btn {
+    width: 10dvw;
+    height: 7dvh;
+    color: white;
+    background: linear-gradient(to right, rgb(37, 4, 90), rgb(19, 2, 63));
+    border-radius: 10px;
+    font-weight: 300;
+    font-size: 1.1rem;
+    outline: none;
+    border: none;
+}
+
+.page-2 {
+    width: 100%;
+    /* height: 120dvh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid black; */
+    /* margin-top: 3rem; */
+    /* background: rgb(4, 0, 15); */
+    background: #080013;
+    /* margin-bottom: 3rem; */
+}
+
+.page-2 h2 {
+    font-weight: 300;
+    font-size: 2.5em;
+    border-bottom: 1px solid #fff;
+    color: white;
+    text-align: center;
+    height: 7.5%;
+    margin-top: 1rem;
+}
+
+.page-2 .card-container {
+    margin-top: 2rem;
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 65dvh);
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s;
+}
+
+.page-2 .card-container .price-card {
+    height: 90%;
+    width: 100%;
+    position: relative;
+    transition: all .5s;
+    border-radius: 15px;
+    overflow: hidden;
+    /* margin: auto; */
+    /* align-self: center; */
+}
+
+.page-2 .card-container:has(.price-card:hover) .price-card:not(.price-card:hover) {
+    opacity: .7;
+    filter: blur(5px);
+    transition: all .5s;
+}
+
+.page-2 .card-container .price-card img {
+    width: 100%;
+    height: 40%;
+    z-index: -2;
+    /* background: red; */
+    object-fit: cover;
+    transition: all .5s;
+}
+
+.page-2 .card-container .price-card:hover img {
+    transition: all .5s;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-2 .card-container .price-card .details {
+    position: absolute;
+    z-index: 99;
+    top: 50%;
+    width: 100%;
+    height: 50%;
+    text-shadow: 0 0 0px #fff, 0 0 2px #fff, 0 0 5px;
+    color: white;
+    transition: all .5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.page-2 .card-container .price-card:hover .details {
+    top: 50%;
+    letter-spacing: 1px;
+    text-shadow: none;
+}
+
+
+.page-2 .card-container .price-card .details .buy-card {
+    width: 40%;
+    visibility: hidden;
+    height: 20%;
+    font-size: larger;
+    border: none;
+    outline: none;
+    color: white;
+    background: rgba(255, 255, 255, .2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    transition: color .5s;
+}
+
+.page-2 .card-container .price-card .details .buy-card:hover {
+    background: gold;
+}
+
+.page-2 .card-container .price-card:hover .details .buy-card {
+    background: rgb(11, 2, 88, .6);
+    visibility: visible;
+    transition: all 1ms;
+}
+
+.page-2 .card-container .price-card .details .name {
+    font-size: x-large;
+}
+
+.page-2 .card-container .price-card .details .work {
+    font-size: larger;
+}
+
+.page-2 .card-container .price-card .details .role {
+    font-size: large;
+}
+
+.page-3 {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* background: #222222; */
+}
+
+.page-3 .main-heading {
+    font-size: 2.5rem;
+    color: rgba(0, 0, 0, 0.884);
+    border-bottom: 1px solid black;
+}
+
+.page-3 .main {
+    width: 95%;
+    height: 90%;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.page-3 .main .left,
+.page-3 .main .right {
+    width: 47%;
+    height: 90%;
+    /* background: lightcyan; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.page-3 .main .left {
+    height: 60%;
+}
+
+.page-3 .main .right video {
+    height: 70%;
+    width: 40dvw;
+    object-fit: cover;
+}
+
+.page-3 .main .left .heading {
+    font-size: 5rem;
+    font-family: horror;
+    background-image: url("https://qph.cf2.quoracdn.net/main-qimg-ee87be2db4e9cfb678c012caa68f4a6e");
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.page-3 .main .left .description {
+    color: rgba(0, 0, 0, 0.753);
+    height: max-content;
+    width: 70%;
+    text-align: center;
+    font-size: large;
+}
+
+.page-3 .main .left .btn {
+    width: 60%;
+    height: 10dvh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.page-3 .main .left .btn button {
+    border-radius: 7px;
+    color: white;
+    background: black;
+    border: none;
+    outline: none;
+    height: 85%;
+    width: 45%;
+    font-size: larger;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.page-3 .main .left .btn button:active {
+    scale: .9;
+}
+
+.page-4 {
+    width: 100%;
+    height: 150dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.page-4 .heading {
+    color: rgba(0, 0, 0, 0.753);
+    border-bottom: 2px solid black;
+    font-size: 2.5rem;
+    font: 200;
+}
+
+.page-4 .main {
+    overflow: hidden;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.page-4 .main .made-in,
+.page-4 .main .made-with,
+.page-4 .main .files {
+    height: 40dvh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(30dvh, 1fr);
+}
+
+/* .page-4 .main .made-in:hover .right,
+.page-4 .main .made-with:hover .right,
+.page-4 .main .files:hover .right {
+    background: #000000;
+    color: white;
+}
+
+.page-4 .main .made-in:hover .right button,
+.page-4 .main .made-with:hover .right button,
+.page-4 .main .files:hover .right button {
+    background: white;
+    color: black;
+}
+
+.page-4 .main .made-in:hover .right h2,
+.page-4 .main .made-with:hover .right h2,
+.page-4 .main .files:hover .right h2,
+.page-4 .main .made-in:hover .right p,
+.page-4 .main .made-with:hover .right p,
+.page-4 .main .files:hover .right p {
+    color: white;
+} */
+
+.page-4 .main .made-in .left,
+.page-4 .main .made-with .left,
+.page-4 .main .files .left {
+    overflow: hidden;
+    width: 80%;
+    height: 90%;
+    border-radius: 7px;
+}
+
+.page-4 .main .made-in .right,
+.page-4 .main .made-with .right,
+.page-4 .main .files .right {
+    border-bottom: 2px solid black;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.page-4 .main .made-in .left img,
+.page-4 .main .made-with .left img,
+.page-4 .main .files .left img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.page-4 .main .made-in .right .sub-head,
+.page-4 .main .made-with .right .sub-head,
+.page-4 .main .files .right .sub-head {
+    /* font-family: fancy; */
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 2.5rem;
+    color: rgb(0, 0, 0);
+}
+
+.page-4 .main .made-in .right .desc,
+.page-4 .main .made-with .right .desc,
+.page-4 .main .files .right .desc {
+    font-weight: 200;
+    font-size: large;
+    color: rgba(0, 0, 0, 0.863);
+    width: 70%;
+    height: max-content;
+    text-align: center;
+}
+
+.page-4 .main .made-in .right .check-out,
+.page-4 .main .made-with .right .check-out,
+.page-4 .main .files .right .check-out {
+    height: 8dvh;
+    width: 10dvw;
+    font-size: larger;
+    font-weight: 200;
+    background: black;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.page-4 .main .made-in .right .check-out:active,
+.page-4 .main .made-with .right .check-out:active,
+.page-4 .main .files .right .check-out:active {
+    scale: .9;
+}
+
+footer {
+    overflow: hidden;
+    background: black;
+    width: 100%;
+    /* height: 50dvh; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 45dvh);
+}
+
+footer .orn img {
+    height: 70%;
+    width: 70%;
+    object-fit: cover;
+    /* box-shadow: 4px 4px 4px pink, 4px 4px 4px whitesmoke; */
+    filter: drop-shadow(-0px 5px 30px rgb(58, 4, 129));
+    animation: logo 3s linear infinite;
+}
+
+@keyframes logo {
+    0% {
+        filter: drop-shadow(-0px 10px 30px rgb(40, 1, 90));
+    }
+
+    25% {
+        filter: drop-shadow(-0px 10px 30px rgb(2, 75, 104));
+    }
+
+    50% {
+        filter: drop-shadow(-0px 10px 30px rgb(1, 104, 95));
+    }
+
+    100% {
+        filter: drop-shadow(-0px 10px 30px rgb(36, 1, 82));
+    }
+}
+
+footer .orn {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-right: 2px solid white;
+}
+
+footer .orn h2 {
+    font-size: 1.5rem;
+    font-weight: 200;
+    /* color: black; */
+}
+
+footer .orn h3 {
+    font-size: 1rem;
+    font-weight: 200;
+    /* color: rgba(0, 0, 0, 0.836); */
+}
+
+footer .orn h3:hover {
+    border-bottom: 1px solid white;
+}
+
+footer .s-4 .feedback {
+    height: 8dvh;
+    width: 9dvw;
+    border-radius: 9px;
+    border: none;
+    outline: none;
+    background: rgb(28, 29, 29);
+}
+
+footer .s-4 .feedback a {
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    font-weight: 200;
+}
+
+footer .s-4 .feedback:active {
+    scale: .9;
+}
+
+footer .s-4 p {
+    text-align: center;
+    height: max-content;
+    width: 90%;
+    font-weight: 100;
+    font-size: .9rem;
+}
+
+footer .s-4 .rights {
+    font-size: .8rem;
+    text-align: center;
+}

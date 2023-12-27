@@ -1,0 +1,48 @@
+@media (width < 600px) {
+    .page-2 .card-container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(8, 50dvh);
+    }
+
+    .page-4 .main {
+        height: auto;
+    }
+
+    .page-4 .main .made-with .left {
+        order: 1;
+    }
+
+    .page-4 .main .made-with .right {
+        order: 2;
+    }
+
+    .page-4 .main .made-in,
+    .page-4 .main .made-with,
+    .page-4 .main .files {
+        height: 40dvh;
+        width: 100%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(50dvh, 1fr);
+    }
+
+    footer {
+        height: max-content;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 55dvh);
+        gap: 10px;
+    }
+}
+
+@media (width > 600px) and (width < 900px) {
+    .page-2 .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 50dvh);
+    }
+}
+
+@media (width > 900px) and (width < 1300px) {
+    .page-2 .card-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 50dvh);
+    }
+}
