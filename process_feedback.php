@@ -3,7 +3,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     $lastName = $_POST["last-name"];
     $email = $_POST["email"];
-    $message = $_POST["message"];
+    $message = $_POST["meassege"]; // Correct the spelling here to match the form field name
 
     // Validate and sanitize input (you can add more validation as needed)
 
@@ -17,3 +17,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo "Invalid request method!";
 }
+?>
