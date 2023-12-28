@@ -1,17 +1,33 @@
 <?php
+// Database configuration
+$servername = "localhost"; // or the IP address if localhost doesn't work
+$username = "root";
+$password = "";
+$dbname = "invento";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST["name"];
+    $firstName = $_POST["name"];
     $lastName = $_POST["last-name"];
     $email = $_POST["email"];
-    $message = $_POST["meassege"]; // Correct the spelling here to match the form field name
+    $message = $_POST["message"];
 
     // Validate and sanitize input (you can add more validation as needed)
 
-    // Save data to a file
-    $data = "Name: $name\nLast Name: $lastName\nEmail: $email\nMessage: $message\n\n";
-    file_put_contents("feedback_data.txt", $data, FILE_APPEND);
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // You can also store data in a database instead of a file if needed
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Prepare and execute SQL statement
+    $stmt = $conn->prepare("INSERT INTO feedback (firstname, lastname, email, message) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $firstName, $lastName, $email, $message);
+    $stmt->execute();
+    $stmt->close();
+
+    $conn->close();
 
     echo "Feedback submitted successfully!";
 } else {
