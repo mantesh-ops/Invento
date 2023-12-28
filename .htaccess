@@ -1,5 +1,3 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{REQUEST_METHOD} !^(GET|POST)$
-    RewriteRule ^ - [L,R=405]
-</IfModule>
+<Limit GET POST>
+    Require all granted
+</Limit>
